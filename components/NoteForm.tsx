@@ -66,55 +66,48 @@ export default function NoteForm({ onSave, editingNote, onCancelEdit }: NoteForm
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg shadow">
-      <div className="mb-4">
-        <label htmlFor="title" className="block text-sm font-medium mb-1">
-          Title
-        </label>
-        <input
-          type="text"
-          id="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Enter note title"
-          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md 
-                     bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        />
-      </div>
-      <div className="mb-4">
-        <label htmlFor="content" className="block text-sm font-medium mb-1">
-          Content
-        </label>
-        <textarea
-          id="content"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="Enter note content"
-          rows={4}
-          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md 
-                     bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-          required
-        />
-      </div>
-      <div className="flex gap-2">
-        <button
-          type="submit"
-          disabled={loading}
-          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 
-                     disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-        >
-          {loading ? "Saving..." : editingNote ? "Update Note" : "Add Note"}
-        </button>
-        {editingNote && (
+    <form onSubmit={handleSubmit} className="h-full flex flex-col">
+      {/* Title Input */}
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="Title"
+        className="w-full max-w-md px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg 
+                   text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+        required
+      />
+
+      {/* Content Textarea */}
+      <textarea
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+        placeholder="Note Content goes here...."
+        className="flex-1 w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg 
+                   text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 
+                   resize-none min-h-[300px]"
+        required
+      />
+
+      {/* Bottom Actions */}
+      <div className="flex items-center mt-4">
+        <div className="flex gap-2">
+          <button
+            type="submit"
+            disabled={loading}
+            className="px-4 py-2 bg-neutral-700 text-white rounded-lg hover:bg-neutral-600 
+                       disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          >
+            {loading ? "Saving..." : editingNote ? "Update Note" : "Add Note"}
+          </button>
           <button
             type="button"
             onClick={handleCancel}
-            className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors"
+            className="px-4 py-2 bg-neutral-700 text-white rounded-lg hover:bg-neutral-600 transition-colors"
           >
             Cancel
           </button>
-        )}
+        </div>
       </div>
     </form>
   );
