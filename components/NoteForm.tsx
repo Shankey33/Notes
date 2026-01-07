@@ -67,7 +67,6 @@ export default function NoteForm({ onSave, editingNote, onCancelEdit }: NoteForm
 
   return (
     <form onSubmit={handleSubmit} className="h-full flex flex-col">
-      {/* Title Input */}
       <input
         type="text"
         value={title}
@@ -78,18 +77,16 @@ export default function NoteForm({ onSave, editingNote, onCancelEdit }: NoteForm
         required
       />
 
-      {/* Content Textarea */}
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        placeholder="Note Content goes here...."
+        placeholder="Write your note..."
         className="flex-1 w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg 
                    text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 
                    resize-none min-h-[300px]"
         required
       />
 
-      {/* Bottom Actions */}
       <div className="flex items-center mt-4">
         <div className="flex gap-2">
           <button

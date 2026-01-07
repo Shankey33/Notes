@@ -3,7 +3,6 @@ import NotesContainer from "@/components/NotesContainer";
 export default function Home() {
   return (
     <main className="min-h-screen bg-neutral-950 text-white">
-      {/* Header */}
       <header className="bg-neutral-900 border-b border-neutral-800 px-6 py-4">
         <div className="flex items-center gap-2">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -99,9 +99,7 @@ export default function NotesContainer() {
 
   return (
     <div className="flex h-[calc(100vh-73px)]">
-      {/* Left Sidebar - Notes List */}
       <div className="w-96 bg-neutral-900 border-r border-neutral-800 flex flex-col">
-        {/* Search and Add */}
         <div className="p-4 flex gap-2">
           <input
             type="text"
@@ -121,7 +119,6 @@ export default function NotesContainer() {
           </button>
         </div>
 
-        {/* Notes List */}
         <div className="flex-1 overflow-y-auto">
           <NoteList
             notes={filteredNotes}
@@ -133,7 +130,6 @@ export default function NotesContainer() {
         </div>
       </div>
 
-      {/* Right Side - Note Form/Editor */}
       <div className="flex-1 bg-neutral-900 p-6">
         {isCreating || editingNote ? (
           <NoteForm
